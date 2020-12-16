@@ -1,9 +1,12 @@
 FROM node:14-alpine AS builder
+
 WORKDIR /app
-COPY package.json yarn.lock ./
+COPY package.json ./
+COPY yarn.lock ./
 RUN yarn install
 COPY . .
 RUN yarn build
+
 
 FROM node:14-alpine
 ARG NODE_ENV=production
