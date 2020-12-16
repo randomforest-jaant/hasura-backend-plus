@@ -290,7 +290,7 @@ export const selectAccountProvider = gql`
 `
 
 export const updateProviderTokens = gql`
-  mutation ($account_provider_id: uuid!, $provider_access_token: String!, $provider_refresh_token: String!) {
+  mutation ($account_provider_id: uuid!, $provider_access_token: String!, $provider_refresh_token: String) {
     update_auth_account_providers_by_pk(
       pk_columns: {id: $account_provider_id},
       _set: {
@@ -301,6 +301,4 @@ export const updateProviderTokens = gql`
       updated_at
     }
   }
-
-
 `

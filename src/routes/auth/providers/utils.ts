@@ -65,7 +65,7 @@ const manageProviderStrategy = (
       account_provider_id: providerId,
       provider_access_token: _accessToken,
       provider_refresh_token: _refreshToken,
-    })
+    }).catch(err => done(err));
 
     return done(null, hasuraData.auth_account_providers[0].account)
   }
