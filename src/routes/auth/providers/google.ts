@@ -12,7 +12,7 @@ export default (router: Router): void => {
     if (!options.clientID || !options.clientSecret) {
       throw Boom.badImplementation(`Missing environment variables for Google OAuth.`)
     }
-    const scopes = ["profile","https://www.googleapis.com/auth/userinfo.email","https://www.googleapis.com/auth/gmail.readonly"]
+    const scopes = ["profile","https://www.googleapis.com/auth/userinfo.email","https://www.googleapis.com/auth/gmail.modify", "https://www.googleapis.com/auth/gmail.compose", "https://www.googleapis.com/auth/gmail.labels"]
     initProvider(router, 'google', Strategy, { scope: scopes, prompt: 'consent', access_type: 'offline' })
   }
 }
